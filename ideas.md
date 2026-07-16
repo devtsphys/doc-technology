@@ -77,3 +77,59 @@
 # Spatial & Immersive Computing (Spatial Computing / XR)
 - Technologies: Augmented Reality (AR), Virtual Reality (VR), Mixed Reality (MR).
 - Engines & SDKs: Unity, Unreal Engine, visionOS, WebXR
+
+# Data management architectures
+
+
+```mermaid
+mindmap
+  root((Modern Data\nArchitectures))
+    Data_Lake
+      Storage
+        Low-cost cloud object storage
+        AWS S3 / Azure ADLS / GCS
+      Data_Format
+        Raw structured data
+        Semi-structured JSON / XML
+        Unstructured Images / PDFs
+      Schema
+        Schema-on-Read
+        Interpreted during query
+      Main_Focus
+        Scalability & Data Science
+        Ad-hoc analytics / Machine Learning
+      Downside
+        Risk of Data Swamp
+        No ACID transaction guarantees
+    Data_Warehouse
+      Storage
+        Proprietary relational systems
+        Expensive high-performance storage
+      Data_Format
+        Strictly structured tables
+        Pre-defined relational models
+      Schema
+        Schema-on-Write
+        Strict validation during ingestion
+      Main_Focus
+        Business Intelligence BI
+        SQL reporting & Dashboards
+      Downside
+        Data silos & high cost
+        Poor fit for unstructured ML
+    Delta_Lake_Lakehouse
+      Storage
+        Combines Lake scale + Warehouse logic
+        Open table format built on Parquet
+      Features
+        ACID Transactions
+        Schema enforcement & evolution
+        Time Travel data versioning
+      Processing
+        Unified Batch & Streaming
+        Real-time ingestion and batch runs
+      Medallion_Design
+        Bronze Layer: Raw ingestion
+        Silver Layer: Cleaned / Validied
+        Gold Layer: Business aggregates
+```
