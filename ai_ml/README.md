@@ -1,7 +1,7 @@
 # AI and Machine Learning
 
-* [Machine Learning](machine-learning.md)
-* [Deep Learning](deep-learning.md)
-* [Generative AI](generative-ai.md)
-* [Agentic AI](agentic-ai.md)
+* [Machine Learning](ml/README.md)
+* [Deep Learning](dl/README.md)
+* [Generative AI](gen_ai/README.md)
+* [Agentic AI](agentic_ai/README.md)
 * [Operations](operations/README.md)
