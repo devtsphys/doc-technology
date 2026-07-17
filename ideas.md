@@ -133,3 +133,32 @@ mindmap
         Silver Layer: Cleaned / Validied
         Gold Layer: Business aggregates
 ```
+
+```mermaid
+flowchart TD
+    subgraph Quellen [Datenquellen]
+        A[Datenbanken]
+        B[Application Logs]
+        C[Bilder / PDFs]
+    end
+
+    subgraph Storage [Data Lake Storage Layer]
+        direction TB
+        subgraph Cloud [Kostengünstiger Objektspeicher: AWS S3 / Azure ADLS / GCS]
+            D[(Raw / Unstructured)]
+            E[(Semi-Structured JSON/XML)]
+            F[(Structured CSV/Parquet)]
+        end
+        G[Metastore / Katalog / z.B. AWS Glue]
+    end
+
+    subgraph Consumer [Auswertung: Schema-on-Read]
+        H[Data Science & ML]
+        I[Ad-hoc SQL Queries]
+    end
+
+    Quellen --> Cloud
+    Cloud -.->|Metadaten extrahieren| G
+    Cloud --> Consumer
+    G -.->|Schema-Definition liefert| Consumer
+```
